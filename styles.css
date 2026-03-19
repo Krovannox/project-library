@@ -83,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 80%;
 
   display: grid;
-  grid-template-rows: min-content 1fr;
+  grid-template-rows: min-content 1fr min-content;
 }
 
 .bookshelf-title {
@@ -117,4 +117,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .book-info-text {
   font-size: 1.3rem;
+}
+
+.form-input {
+  color: red;
+}
+
+.form-label {
+  color: green;
 }
