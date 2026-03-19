@@ -49,3 +49,38 @@ p, li, figcaption {
 h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
 }
+
+/**********/
+/* HEADER */
+/**********/
+
+.header {
+  height: 100px;
+  background-color: royalblue;
+  color: goldenrod;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-title {
+  font-size: 3.5rem;
+}
+
+.main {
+  min-height: 100vh;
+  background-color: lightblue;
+
+  display: flex;
+  justify-content: center;
+}
+
+.main-container {
+  margin: 2rem;
+  padding: 2rem;
+  outline: 2px solid goldenrod;
+
+  display: grid;
+  grid-template-rows: min-content 1fr;
+}
