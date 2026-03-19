@@ -40,7 +40,8 @@ function createBookForm() {
     bookPagesInput.id = "book_pages";
 
     const submitButton = document.createElement("button");
-    submitButton.setAttribute("class", "form-");
+    submitButton.setAttribute("class", "form-button");
+    submitButton.setAttribute("id", "formButton");
     submitButton.type = "submit";
     submitButton.textContent = "Submit";
 
@@ -53,8 +54,44 @@ function createBookForm() {
     formElement.appendChild(submitButton);
 
     document.body.appendChild(formElement);
+
+    const submitBookButton = document.getElementById("formButton");
+    submitBookButton.addEventListener("click", function(e) {
+    console.log("Submit button");
+})
 }
 
 addBookForm.addEventListener("click", function(e) {
     createBookForm();
 })
+
+
+
+/* Code that work at adding books, needs testing and configuration:
+
+const bookName = document.getElementById("formBookName");
+const bookAuthor = document.getElementById("formBookAuthor");
+const bookPages = document.getElementById("formBookPages");
+
+const bookSubmitButton = document.getElementById("formButton");
+
+const myLibrary = [];
+
+function Book(name, author, pages) {
+    this.name = name;
+    this.author = author;
+    this.pages = pages;
+}
+
+function addNewBook() {
+    const newBook = new Book(bookName.value, bookAuthor.value, bookPages.value);
+    myLibrary.push(newBook);
+}
+
+bookSubmitButton.addEventListener("click", function(e) {
+    addNewBook();
+
+    return console.log(myLibrary);
+})
+
+*/
