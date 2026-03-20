@@ -38,12 +38,39 @@ function clearBookForm() {
 
 /* Function that loops through the array of books */
 function loopMyLibrary(myLibrary) {
+
+    /* Clear the previous content with a while loop */
+    while(bookContainer.firstChild) {
+        bookContainer.removeChild(bookContainer.firstChild);
+    }
+
+    /* Iterate over the array and add the items to the page */
     for (let book of myLibrary) {
+        /* Create book card */
+        const bookCard = document.createElement("div");
+        bookCard.setAttribute("class", "book-card");
         for (let property in book) {
+            const displaBookTitle = document.createElement("span");
+            displaBookTitle.textContent = property.toUpperCase(); /* Use string modifications to make the first letter uppercase and add ":" */
+
+            const displayBookTitleText = document.createElement("span");
+            displayBookTitleText.textContent = book[property];
+
+            bookCard.appendChild(displaBookTitle);
+            bookCard.appendChild(displayBookTitleText);
+
+            bookContainer.appendChild(bookCard);
+
             console.log(`${property}: ${book[property]}`);
         }
     }
 }
+
+/*************************************/
+/* ELEMENTS TO PUT BOOK INFO IN HTML */
+/*************************************/
+const bookContainer = document.getElementById("book-container");
+
 
 /* Create an event listener for the submit button of the form */
 submitNewBookButton.addEventListener("click", function(e) {
@@ -73,6 +100,7 @@ submitNewBookButton.addEventListener("click", function(e) {
     /* Empty the form inputs */
     clearBookForm();
 
+    /* Loop the information and put it in the page */
     loopMyLibrary(myLibrary);
 
     /* Closes the dialog element */
