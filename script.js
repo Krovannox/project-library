@@ -51,8 +51,8 @@ function loopMyLibrary(myLibrary) {
         bookCard.setAttribute("class", "book-card");
         for (let property in book) {
             const displaBookTitle = document.createElement("span");
-            displaBookTitle.textContent = property.toUpperCase(); /* Use string modifications to make the first letter uppercase and add ":" */
-
+            displaBookTitle.textContent = 
+                (`${property.charAt(0).toUpperCase()}${property.slice(1)}:`);
             const displayBookTitleText = document.createElement("span");
             displayBookTitleText.textContent = book[property];
 
