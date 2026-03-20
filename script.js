@@ -51,9 +51,13 @@ function loopMyLibrary(myLibrary) {
         bookCard.setAttribute("class", "book-card");
         for (let property in book) {
             const displaBookTitle = document.createElement("span");
+            displaBookTitle.setAttribute("class", "bookCardLabel");
+
             displaBookTitle.textContent = 
                 (`${property.charAt(0).toUpperCase()}${property.slice(1)}:`);
+
             const displayBookTitleText = document.createElement("span");
+            displayBookTitleText.setAttribute("class", "bookCardText");
             displayBookTitleText.textContent = book[property];
 
             bookCard.appendChild(displaBookTitle);
