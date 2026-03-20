@@ -1,4 +1,4 @@
-const addBookForm = document.getElementById("addBookForm");
+/* const addBookForm = document.getElementById("addBookForm");
 
 function createBookForm() {
     const formElement = document.createElement("form");
@@ -64,7 +64,7 @@ function createBookForm() {
 addBookForm.addEventListener("click", function(e) {
     createBookForm();
 })
-
+ */
 
 
 /* Code that work at adding books, needs testing and configuration:
