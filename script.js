@@ -36,6 +36,15 @@ function clearBookForm() {
     infoBookPages.value = "";
 }
 
+/* Function that loops through the array of books */
+function loopMyLibrary(myLibrary) {
+    for (let book of myLibrary) {
+        for (let property in book) {
+            console.log(`${property}: ${book[property]}`);
+        }
+    }
+}
+
 /* Create an event listener for the submit button of the form */
 submitNewBookButton.addEventListener("click", function(e) {
     /* Prevents the default submit */
@@ -63,6 +72,8 @@ submitNewBookButton.addEventListener("click", function(e) {
 
     /* Empty the form inputs */
     clearBookForm();
+
+    loopMyLibrary(myLibrary);
 
     /* Closes the dialog element */
     dialogElement.close();
