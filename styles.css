@@ -49,3 +49,28 @@ p, li, figcaption {
 h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
 }
+
+.container {
+  background-color: wheat;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+.book-form {
+  display: grid;
+  grid-template-rows: repeat(4, min-content);
+  grid-template-columns: max-content 1fr;
+}
+
+/* Hide number input spinners */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

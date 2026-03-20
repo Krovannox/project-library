@@ -1,3 +1,73 @@
+/* Selects the submit button inside the form of the dialog */
+const submitNewBookButton = document.getElementById("submit-book-btn");
+
+/* Selects the form */
+const mainBookForm = document.getElementById("main-book-form");
+
+/* Selects the dialog element */
+const dialogElement = document.getElementById("new-book-form");
+
+/* Selects the information of the inputs */
+const infoBookTitle = document.getElementById("bookTitle");
+const infoBookAuthor = document.getElementById("bookAuthor");
+const infoBookPages = document.getElementById("bookPages");
+
+/* Array to hold the books */
+const myLibrary = [];
+
+/* Constructor */
+function Book(name, author, pages) {
+    this.name = name;
+    this.author = author;
+    this.pages = pages;
+}
+
+/* Function that adds new books to the array */
+function addNewBook(bookTitle, bookAuthor, bookPages) {
+    const newBook = new Book(bookTitle, bookAuthor, bookPages);
+
+    myLibrary.push(newBook);
+}
+
+/* Function that clears the book form */
+function clearBookForm() {
+    infoBookTitle.value = "";
+    infoBookAuthor.value = "";
+    infoBookPages.value = "";
+}
+
+/* Create an event listener for the submit button of the form */
+submitNewBookButton.addEventListener("click", function(e) {
+    /* Prevents the default submit */
+    e.preventDefault();
+
+    /* Check if the inputs are filled */
+    if (!infoBookTitle.value || !infoBookAuthor.value || !infoBookPages.value) {
+        alert("Please fill all of the fields");
+        return;
+    }
+
+    /* Asigns the values of the inputs */
+    const bookTitle = infoBookTitle.value;
+    const bookAuthor = infoBookAuthor.value;
+    const bookPages = infoBookPages.value;
+
+    /* Add the book to the array */
+    addNewBook(bookTitle, bookAuthor, bookPages);
+
+    console.log(bookTitle);
+    console.log(bookAuthor);
+    console.log(bookPages);
+
+    console.log(myLibrary);
+
+    /* Empty the form inputs */
+    clearBookForm();
+
+    /* Closes the dialog element */
+    dialogElement.close();
+});
+
 /* const addBookForm = document.getElementById("addBookForm");
 
 function createBookForm() {
@@ -65,33 +135,3 @@ addBookForm.addEventListener("click", function(e) {
     createBookForm();
 })
  */
-
-
-/* Code that work at adding books, needs testing and configuration:
-
-const bookName = document.getElementById("formBookName");
-const bookAuthor = document.getElementById("formBookAuthor");
-const bookPages = document.getElementById("formBookPages");
-
-const bookSubmitButton = document.getElementById("formButton");
-
-const myLibrary = [];
-
-function Book(name, author, pages) {
-    this.name = name;
-    this.author = author;
-    this.pages = pages;
-}
-
-function addNewBook() {
-    const newBook = new Book(bookName.value, bookAuthor.value, bookPages.value);
-    myLibrary.push(newBook);
-}
-
-bookSubmitButton.addEventListener("click", function(e) {
-    addNewBook();
-
-    return console.log(myLibrary);
-})
-
-*/
