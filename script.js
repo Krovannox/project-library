@@ -53,20 +53,23 @@ function loopMyLibrary(myLibrary) {
         /* Create book card */
         const bookCard = document.createElement("div");
         bookCard.setAttribute("class", "book-card");
+
         for (let property in book) {
             if (property === "bookCode") continue; /* Avoid adding the bookCode to the display card */
 
-            const displaBookTitle = document.createElement("span");
-            displaBookTitle.setAttribute("class", "bookCardLabel");
+            const displayBookTitle = document.createElement("span");
+            displayBookTitle.setAttribute("class", "bookCardLabel");
 
-            displaBookTitle.textContent = 
+            displayBookTitle.textContent = 
                 (`${property.charAt(0).toUpperCase()}${property.slice(1)}:`);
 
             const displayBookTitleText = document.createElement("span");
             displayBookTitleText.setAttribute("class", "bookCardText");
             displayBookTitleText.textContent = book[property];
 
-            bookCard.appendChild(displaBookTitle);
+            
+
+            bookCard.appendChild(displayBookTitle);
             bookCard.appendChild(displayBookTitleText);
 
             bookCard.setAttribute("data-bookCode", book.bookCode); /* Add the book code directly to the HTML element to link it for deletion */
@@ -75,6 +78,11 @@ function loopMyLibrary(myLibrary) {
 
             console.log(`${property}: ${book[property]}`);
         }
+
+        const deleteButton = document.createElement("button");
+        deleteButton.setAttribute("class", "delete-button");
+        deleteButton.setAttribute("id", book.bookCode);
+        bookCard.appendChild(deleteButton);
     }
 }
 
