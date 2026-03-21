@@ -79,14 +79,21 @@ function loopMyLibrary(myLibrary) {
             console.log(`${property}: ${book[property]}`);
         }
 
+        /* Create button for book deletion */
         const deleteButton = document.createElement("button");
         deleteButton.className = "delete-button";
         deleteButton.id = book.bookCode;
         deleteButton.textContent = "Delete";
         bookCard.appendChild(deleteButton);
 
+        /* Event listener to remove the book from the HTML and the Array */
         deleteButton.addEventListener("click", function(e) {
             bookCard.remove();
+
+            const index = myLibrary.findIndex(removedBook => removedBook.bookCode === book.bookCode);
+            if (index !== -1) {
+                myLibrary.splice(index, 1);
+            }
         })
     }
 }
