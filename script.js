@@ -80,9 +80,14 @@ function loopMyLibrary(myLibrary) {
         }
 
         const deleteButton = document.createElement("button");
-        deleteButton.setAttribute("class", "delete-button");
-        deleteButton.setAttribute("id", book.bookCode);
+        deleteButton.className = "delete-button";
+        deleteButton.id = book.bookCode;
+        deleteButton.textContent = "Delete";
         bookCard.appendChild(deleteButton);
+
+        deleteButton.addEventListener("click", function(e) {
+            bookCard.remove();
+        })
     }
 }
 
@@ -103,7 +108,7 @@ submitNewBookButton.addEventListener("click", function(e) {
         return;
     }
 
-    /* Asigns the values of the inputs */
+    /* Assigns the values of the inputs */
     const bookTitle = infoBookTitle.value;
     const bookAuthor = infoBookAuthor.value;
     const bookPages = infoBookPages.value;
