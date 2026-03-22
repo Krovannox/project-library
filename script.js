@@ -22,3 +22,8 @@ function removeBook(bookID) {
     const index = myLibrary.findIndex(book => book.bookID === bookID);
     if (index !== -1) return myLibrary.splice(index, 1);
 }
+
+function renderLibrary() {
+    const bookshelf = document.getElementById("library-container");
+    bookshelf.remove();
+}
