@@ -8,29 +8,6 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Library</h1>
-        <button command="show-modal" commandfor="new-book-form">+New Book</button>
-    </div>
 
-    <dialog id="new-book-form" closedby="any">
-        <form action="#" method="post" class="book-form" id="main-book-form">
-            <label for="bookTitle">Title:</label>
-            <input type="text" name="book_title" id="bookTitle">
-
-            <label for="bookAuthor">Author:</label>
-            <input type="text" name="book_author" id="bookAuthor">
-
-            <label for="bookPages">Pages:</label>
-            <input type="number" name="book_pages" id="bookPages">
-
-            <button type="submit" id="submit-book-btn">Submit Book</button>
-            <button type="button" command="close" commandfor="new-book-form">Close</button>
-        </form>
-    </dialog>
-
-    <div class="book-info" id="book-container">
-
-    </div>
 </body>
 </html>
