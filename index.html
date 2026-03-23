@@ -82,6 +82,28 @@
                     <button class="remove-book">Remove Book</button>
                 </div>
             </div>
+
+            <dialog class="add-book-form">
+                <form action="#" method="post">
+                    <span class="add-book-form-description">Introduce the book information</span>
+
+                    <div class="add-book-form-inputs">
+                        <label for="book-title" class="add-book-form-label">Title:</label>
+                        <input type="text" class="add-book-form-input" name="book_title" id="book-title">
+
+                        <label for="book-author" class="add-book-form-label">Author:</label>
+                        <input type="text" class="add-book-form-input" name="book_author" id="book-author">
+
+                        <label for="book-pages" class="add-book-form-label">Pages:</label>
+                        <input type="number" class="add-book-form-input" name="" id="book-pages">
+                    </div>
+
+                    <button type="submit" class="btn-submit-add-book-form" id="btn-submit-add-book-form">Submit</button>
+
+                    <button type="button" class="btn-close-add-book-form" id="btn-close-add-book-form">Close</button>
+                </form>
+            </dialog>
+
         </main>
 
     </div>
