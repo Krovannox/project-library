@@ -1,3 +1,43 @@
+/**************/
+/* FONTS FACE */
+/**************/
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./fonts/Inter-Italic.woff2') format('woff2'),
+        url('./fonts/Inter-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./fonts/Inter-Regular.woff2') format('woff2'),
+        url('./fonts/Inter-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    src: url('./fonts/Merriweather-LightItalic.woff2') format('woff2'),
+        url('./fonts/Merriweather-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    src: url('./fonts/Merriweather-Light.woff2') format('woff2'),
+        url('./fonts/Merriweather-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
 /**********************************/
 /* Josh Comeau’s custom CSS reset */
 /**********************************/
@@ -50,6 +90,245 @@ h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
 }
 
+/***************/
+/* ROOT STYLES */
+/***************/
+
+:root {
+  --header-bg-clr: #4B2E1E;
+  --header-text-clr: #F5E9DC;
+  --header-shadow-clr: #27180f;
+
+  --main-bg-clr: #EAD7C5;
+
+  --btn-add-book-bg-clr: #5A3A1B;
+  --btn-add-book-hover-bg-clr: #6B4226;
+  --btn-add-book-active-bg-clr: #7A4A2A;
+  --btn-add-book-text-clr: #F4E7D3;
+
+  --book-container-bg-clr: #D6BFA3;
+  --card-bg-clr: #E6D3B3;
+  --card-border-clr: #6B4226;
+
+  --btn-read-status-unread-bg-clr: #C47A6D;
+  --btn-read-status-unread-hover-bg-clr: #B96B5E;
+  --btn-read-status-unread-active-bg-clr: #A85A4D;
+  --btn-read-status-unread-text-clr: #2E1A14;
+
+  --btn-read-status-read-bg-clr: #A3B18A;
+  --btn-read-status-read-hover-bg-clr: #8FA176;
+  --btn-read-status-read-active-bg-clr: #7A8F63;
+  --btn-read-status-read-text-clr: #1F2A1F;
+
+  --btn-remove-book-bg-clr: #B85C4B;
+  --btn-remove-book-hover-bg-clr: #A94E3E;
+  --btn-remove-book-active-bg-clr: #8F3E30;
+  --btn-remove-book-border-clr: #D7A49A;
+  --btn-remove-book-text-clr: #2B1612;
+  --btn-remove-book-text-contrast-clr: #FFFFFF;
+
+}
+
 /****************/
 /* PAGE STYLING */
 /****************/
+
+.main-container {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif; /* Default */
+
+  display: grid;
+  grid-template-rows: 1fr 8fr;
+}
+
+.header {
+  position: relative;
+  font-family: "Merriweather";
+  background-color: var(--header-bg-clr);
+  color: var(--header-text-clr);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-title {
+  font-size: 2.5rem;
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.5rem;
+  height: 0.5rem;
+  background: linear-gradient(to bottom, var(--header-shadow-clr), transparent);
+}
+
+.main {
+  font-family: "Inter";
+  background-color: var(--main-bg-clr);
+  padding: 2rem;
+
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  row-gap: 1rem;
+}
+
+/*** FOR DISPLAY PURPOSES ***/
+/* .main * {
+  outline: 1px solid black;
+} */
+/*** FOR DISPLAY PURPOSES ***/
+
+.btn-add-book {
+  font-weight: 700;
+  background-color: var(--btn-add-book-bg-clr);
+  color: var(--btn-add-book-text-clr);
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 4px rgba(60, 40, 20, 0.25);
+  align-self: center;
+  justify-self: center;
+}
+
+.btn-add-book:hover {
+  background-color: var(--btn-add-book-hover-bg-clr);
+  box-shadow: 0 4px 8px rgba(60, 40, 20, 0.35);
+}
+
+.btn-add-book:active {
+  background-color: var(--btn-add-book-active-bg-clr);
+  box-shadow: 0 4px 8px rgba(60, 40, 20, 0.35);
+}
+
+.books-container {
+  background-color: var(--book-container-bg-clr);
+  box-shadow: 0 0 4px 3px rgba(60, 40, 20, 0.25);
+  padding: 2rem;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.book-card {
+  background-color: var(--card-bg-clr);
+  border: 2px solid var(--card-border-clr);
+  border-radius: 0.75rem;
+  padding: 1rem;
+
+  display: grid;
+  grid-template-rows: auto auto auto 2fr 4fr;
+  align-items: center;
+  row-gap: 0.4rem;
+}
+
+.book-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.book-author {
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.book-pages {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/**********************/
+/* READ/UNREAD BUTTON */
+/**********************/
+
+/* Read/Unread button general style */
+.btn-read-status {
+  font-weight: 500;
+  font-size: 0.9rem;
+
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.1rem 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(60, 40, 20, 0.25);
+
+  justify-self: flex-start;
+  align-self: flex-end;
+}
+
+.btn-read-status:hover {
+  box-shadow: 0 4px 8px rgba(60, 40, 20, 0.35);
+}
+
+.btn-read-status:active {
+  box-shadow: 0 4px 8px rgba(60, 40, 20, 0.35);
+}
+/* ******************************** */
+
+/* Read/Unread button status is Unread */
+.btn-read-status-unread {
+  background-color: var(--btn-read-status-unread-bg-clr);
+  color: var(--btn-read-status-unread-text-clr);
+}
+
+.btn-read-status-unread:hover {
+  background-color: var(--btn-read-status-unread-hover-bg-clr);
+}
+
+.btn-read-status-unread:active {
+  background-color: var(--btn-read-status-unread-active-bg-clr);
+}
+/* **************************** */
+
+/* Read/Unread button status is Read */
+.btn-read-status-read {
+  background-color: var(--btn-read-status-read-bg-clr);
+  color: var(--btn-read-status-read-text-clr);
+}
+
+.btn-read-status-read:hover {
+  background-color: var(--btn-read-status-read-hover-bg-clr);
+}
+
+.btn-read-status-read:active {
+  background-color: var(--btn-read-status-read-active-bg-clr);
+}
+/* ************************** */
+
+/**********************/
+/* REMOVE BOOK BUTTON */
+/**********************/
+
+/* Remove Book button general style */
+.remove-book {
+  font-weight: 500;
+  font-size: 0.9rem;
+
+  background-color: var(--btn-remove-book-bg-clr);
+  color: var(--btn-remove-book-text-clr);
+  border: 1px solid var(--btn-remove-book-border-clr);
+  border-radius: 0.5rem;
+  padding: 0.1rem 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(60, 40, 20, 0.25);
+  
+  justify-self: flex-end;
+  align-self: flex-end;
+}
+
+.remove-book:hover {
+  background-color: var(--btn-remove-book-hover-bg-clr);
+  color: var(--btn-remove-book-text-contrast-clr);
+  box-shadow: 0 4px 8px rgba(60, 40, 20, 0.35);
+}
+
+.remove-book:active {
+  background-color: var(--btn-remove-book-active-bg-clr);
+  color: var(--btn-remove-book-text-contrast-clr);
+  box-shadow: 0 4px 8px rgba(60, 40, 20, 0.35);
+}
+/* ******************************** */
