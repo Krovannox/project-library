@@ -53,36 +53,3 @@ h1, h2, h3, h4, h5, h6 {
 /****************/
 /* PAGE STYLING */
 /****************/
-
-.main-container {
-  min-height: 100vh;
-
-  display: grid;
-  grid-template-rows: 1fr 8fr;
-}
-
-.header {
-  background-color: wheat;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.header-title {
-  font-size: 4rem;
-}
-
-.main {
-  background-color: lightyellow;
-  padding: 2rem;
-
-  display: grid;
-  grid-template-rows: min-content 1fr;
-  gap: 1rem;
-}
-
-.library-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill minmax(300px, 1fr));
-}
