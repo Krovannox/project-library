@@ -15,7 +15,7 @@
         </header>
 
         <main class="main">
-            <button class="btn-add-book">+ Add Book</button>
+            <button class="btn-add-book" command="show-modal" commandfor="dialog-container">+ Add Book</button>
 
             <div class="books-container" id="books-container">
                 <div class="book-card">
@@ -83,19 +83,19 @@
                 </div>
             </div>
 
-            <dialog class="add-book-form">
-                <form action="#" method="post">
-                    <span class="add-book-form-description">Introduce the book information</span>
+            <dialog class="dialog-container" id="dialog-container" closeby="any">
+                <form action="#" method="post" class="add-book-form">
+                    <span class="add-book-form-description">Book Information</span>
 
-                    <div class="add-book-form-inputs">
+                    <div class="add-book-form-inputs-container">
                         <label for="book-title" class="add-book-form-label">Title:</label>
-                        <input type="text" class="add-book-form-input" name="book_title" id="book-title">
+                        <input type="text" class="add-book-form-input" name="book_title" id="book-title" placeholder="Title...">
 
                         <label for="book-author" class="add-book-form-label">Author:</label>
-                        <input type="text" class="add-book-form-input" name="book_author" id="book-author">
+                        <input type="text" class="add-book-form-input" name="book_author" id="book-author" placeholder="Author...">
 
                         <label for="book-pages" class="add-book-form-label">Pages:</label>
-                        <input type="number" class="add-book-form-input" name="" id="book-pages">
+                        <input type="number" class="add-book-form-input" name="" id="book-pages" placeholder="000...">
                     </div>
 
                     <button type="submit" class="btn-submit-add-book-form" id="btn-submit-add-book-form">Submit</button>

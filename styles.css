@@ -176,12 +176,6 @@ h1, h2, h3, h4, h5, h6 {
   row-gap: 1rem;
 }
 
-/*** FOR DISPLAY PURPOSES ***/
-/* .main * {
-  outline: 1px solid black;
-} */
-/*** FOR DISPLAY PURPOSES ***/
-
 .btn-add-book {
   font-weight: 700;
   background-color: var(--btn-add-book-bg-clr);
@@ -332,3 +326,67 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 4px 8px rgba(60, 40, 20, 0.35);
 }
 /* ******************************** */
+
+/********************/
+/* DIALOG CONTAINER */
+/********************/
+
+.dialog-container {
+  background-color: lightcoral;
+  border: 2px solid black;
+  border-radius: 0.5rem;
+}
+
+/* TEMPORAL */
+.dialog-container * {
+  outline: 1px solid blue;
+}
+/* TEMPORAL */
+
+.add-book-form {
+  outline: 1px solid black; /* Temporal */
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.add-book-form-description {
+  font-family: "Merriweather";
+  font-weight: 600;
+  font-size: 1.25rem;
+  padding: 0.5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-book-form-inputs-container {
+  display: grid;
+  grid-template-rows: repeat(3, min-content);
+  grid-template-columns: max-content 1fr;
+  align-items: center;
+  gap: 1.2rem 0.5rem;
+}
+
+.add-book-form-label {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.add-book-form-input {
+  border: none;
+  border-radius: 0.25rem;
+
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.btn-submit-add-book-form {
+  align-self: center;
+}
+
+.btn-close-add-book-form {
+  align-self: center;
+}
