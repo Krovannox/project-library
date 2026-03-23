@@ -23,7 +23,23 @@ function removeBook(bookID) {
     if (index !== -1) return myLibrary.splice(index, 1);
 }
 
-function renderLibrary() {
-    const bookshelf = document.getElementById("library-container");
-    bookshelf.remove();
+// Get the container for use in event delegation
+const bookshelf = document.getElementById("books-container");
+
+// Event delegation function
+bookshelf.addEventListener("click", function(e) {
+    const targetBtn = e.target;
+
+    // Listener for the Read/Unread button
+    if (targetBtn.classList.contains("btn-read-status")) {
+        toggleReadUnreadDisplay(targetBtn);
+    }
+})
+
+// Function that handles the toggle and change of text of the Read/Unread button
+function toggleReadUnreadDisplay(targetBtn) {
+    targetBtn.classList.toggle("btn-read-status-read");
+    targetBtn.textContent = targetBtn.classList.contains("btn-read-status-read")
+        ? "Read"
+        : "Unread";
 }
