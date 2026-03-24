@@ -218,6 +218,11 @@ h1, h2, h3, h4, h5, h6 {
   gap: 2rem;
 }
 
+/* TEMP */
+.book-card * {
+  outline: 1px solid black;
+}
+
 .book-card {
   background-color: var(--card-bg-clr);
   border: 2px solid var(--card-border-clr);
@@ -225,9 +230,14 @@ h1, h2, h3, h4, h5, h6 {
   padding: 1rem;
 
   display: grid;
-  grid-template-rows: auto auto auto 2fr 4fr;
-  align-items: center;
-  row-gap: 0.4rem;
+  grid-template-rows: auto auto 1fr auto;
+  row-gap: 0.5rem;
+  align-self: start;
+}
+
+.card-btn-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .book-title {
@@ -260,8 +270,7 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(60, 40, 20, 0.25);
 
-  justify-self: flex-start;
-  align-self: flex-end;
+  align-self: flex-start;
 }
 
 .btn-read-status:hover {
@@ -324,7 +333,6 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(60, 40, 20, 0.25);
   
-  justify-self: flex-end;
   align-self: flex-end;
 }
 
