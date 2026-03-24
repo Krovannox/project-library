@@ -140,33 +140,19 @@ function createBookCard(book) {
     btnRemoveBook.className = "btn-remove-book";
     btnRemoveBook.textContent = "Remove Book";
 
-    for (let property in book) {
-        // Avoid adding "read" and "bookID" to the display
-        if (property === "read") continue;
-        if (property === "bookID") continue;
+    bookTitle.textContent = book.title;
+    bookAuthor.textContent = `by ${book.author}`;
+    bookPages.textContent = `${book.pages} pages`;
 
-        // Asigns the value per property
-        if (property === "title") {
-            bookTitle.textContent = book[property];
-            console.log(bookTitle);
-        } else if (property === "author") {
-            bookAuthor.textContent = `by ${book[property]}`;
-            console.log(bookAuthor);
-        } else if (property === "pages") {
-            bookPages.textContent = `${book[property]} pages`;
-            console.log(bookPages);
-        }
+    // Appends the inputs to the bookCard
+    bookCard.appendChild(bookTitle);
+    bookCard.appendChild(bookAuthor);
+    bookCard.appendChild(bookPages);
+    bookCard.appendChild(btnReadUnread);
+    bookCard.appendChild(btnRemoveBook);
 
-        // Appends the inputs to the bookCard
-        bookCard.appendChild(bookTitle);
-        bookCard.appendChild(bookAuthor);
-        bookCard.appendChild(bookPages);
-        bookCard.appendChild(btnReadUnread);
-        bookCard.appendChild(btnRemoveBook);
-
-        // Appends the bookCard to the Bookshelf
-        bookshelf.appendChild(bookCard);
-    }
+    // Appends the bookCard to the Bookshelf
+    bookshelf.appendChild(bookCard);
 }
 
 //////////////////////////////////////////////////////////////////////
