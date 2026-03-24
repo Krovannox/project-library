@@ -143,6 +143,9 @@ function createBookCard(book) {
     btnRemoveBook.className = "btn-remove-book";
     btnRemoveBook.textContent = "Remove Book";
 
+    // Creates a dataset to add it to the DOM "data-id=ID"
+    bookCard.dataset.id = book.bookID;
+
     bookTitle.textContent = book.title;
     bookAuthor.textContent = `by ${book.author}`;
     bookPages.textContent = `${book.pages} pages`;
@@ -177,8 +180,19 @@ function renderBooks(myLibrary) {
 //////////////////////////////////////////////
 
 bookshelf.addEventListener("click", function(e) {
-    const targetBookshelfBtn = e.target;
+    const target = e.target;
 
     // Delegation for the Read/Unread button
-    if (targetBookshelfBtn.classList.contains("btn-read-status")) toggleReadUnreadDisplay(targetBookshelfBtn)
+    if (target.classList.contains("btn-read-status")) toggleReadUnreadDisplay(target);
+
+    // Delegation for the Remove Book button
+    if (target.classList.contains("btn-remove-book")) {
+        // Traverses the element and its parents (heading toward the document root) until it finds a node that matches the specified CSS selector
+        const bookCard = target.closest(".book-card");
+        // Get the ID from the element previously found
+        const bookID = bookCard.dataset.id;
+
+        removeBook(bookID); // Remove the book from the main array
+        renderBooks(myLibrary); // Reconstruct the bookshelf with the new modified main array
+    }
 })
