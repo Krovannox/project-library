@@ -132,6 +132,9 @@ function createBookCard(book) {
     const bookPages = document.createElement("span");
     bookPages.className = "book-pages";
 
+    const cardBtnContainer = document.createElement("div");
+    cardBtnContainer.className = "card-btn-container";
+
     const btnReadUnread = document.createElement("button");
     btnReadUnread.className = "btn-read-status btn-read-status-unread";
     btnReadUnread.textContent = "Unread";
@@ -148,8 +151,10 @@ function createBookCard(book) {
     bookCard.appendChild(bookTitle);
     bookCard.appendChild(bookAuthor);
     bookCard.appendChild(bookPages);
-    bookCard.appendChild(btnReadUnread);
-    bookCard.appendChild(btnRemoveBook);
+
+    cardBtnContainer.appendChild(btnReadUnread);
+    cardBtnContainer.appendChild(btnRemoveBook);
+    bookCard.appendChild(cardBtnContainer);
 
     // Appends the bookCard to the Bookshelf
     bookshelf.appendChild(bookCard);

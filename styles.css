@@ -218,11 +218,6 @@ h1, h2, h3, h4, h5, h6 {
   gap: 2rem;
 }
 
-/* TEMP */
-.book-card * {
-  outline: 1px solid black;
-}
-
 .book-card {
   background-color: var(--card-bg-clr);
   border: 2px solid var(--card-border-clr);
@@ -231,13 +226,16 @@ h1, h2, h3, h4, h5, h6 {
 
   display: grid;
   grid-template-rows: auto auto 1fr auto;
-  row-gap: 0.5rem;
+  row-gap: 0.1rem;
   align-self: start;
 }
 
 .card-btn-container {
+  margin-top: 0.5rem;
+
   display: flex;
   flex-direction: column;
+  gap: 1rem;
 }
 
 .book-title {
