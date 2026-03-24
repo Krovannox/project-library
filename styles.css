@@ -385,6 +385,13 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0.25rem 0.5rem;
 }
 
+/* Hide the input spinner from the input type="number" */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .btn-submit-add-book-form,
 .btn-close-add-book-form {
   background-color: var(--btn-modal-bg-clr);
