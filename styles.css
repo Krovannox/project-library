@@ -117,22 +117,24 @@ h1, h2, h3, h4, h5, h6 {
   --card-bg-clr: #E6D3B3;
   --card-border-clr: #6B4226;
 
-  --btn-read-status-unread-bg-clr: #C47A6D;
-  --btn-read-status-unread-hover-bg-clr: #B96B5E;
-  --btn-read-status-unread-active-bg-clr: #A85A4D;
-  --btn-read-status-unread-text-clr: #2E1A14;
+  --btn-read-status-unread-bg-clr: #DC2626;
+  --btn-read-status-unread-hover-bg-clr: #B91C1C;
+  --btn-read-status-unread-active-bg-clr: #991B1B;
+  --btn-read-status-unread-text-clr: #FFFFFF;
+  --btn-read-status-unread-text-contrast-clr: #111111;
 
-  --btn-read-status-read-bg-clr: #A3B18A;
-  --btn-read-status-read-hover-bg-clr: #8FA176;
-  --btn-read-status-read-active-bg-clr: #7A8F63;
-  --btn-read-status-read-text-clr: #1F2A1F;
+  --btn-read-status-read-bg-clr: #16A34A;
+  --btn-read-status-read-hover-bg-clr: #15803D;
+  --btn-read-status-read-active-bg-clr: #166534;
+  --btn-read-status-read-text-clr: #FFFFFF;
+  --btn-read-status-read-text-contrast-clr: #111111;
 
-  --btn-remove-book-bg-clr: #B85C4B;
-  --btn-remove-book-hover-bg-clr: #A94E3E;
-  --btn-remove-book-active-bg-clr: #8F3E30;
-  --btn-remove-book-border-clr: #D7A49A;
-  --btn-remove-book-text-clr: #2B1612;
-  --btn-remove-book-text-contrast-clr: #FFFFFF;
+  --btn-remove-book-bg-clr: #DC2626;
+  --btn-remove-book-hover-bg-clr: #B91C1C;
+  --btn-remove-book-active-bg-clr: #991B1B;
+  --btn-remove-book-border-clr: #F87171;
+  --btn-remove-book-text-clr: #FFFFFF;
+  --btn-remove-book-text-contrast-clr: #111111;
 
 }
 
@@ -279,10 +281,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-read-status-unread:hover {
   background-color: var(--btn-read-status-unread-hover-bg-clr);
+  color: var(--btn-read-status-unread-text-contrast-clr);
 }
 
 .btn-read-status-unread:active {
   background-color: var(--btn-read-status-unread-active-bg-clr);
+  color: var(--btn-read-status-unread-text-contrast-clr);
 }
 /* **************************** */
 
@@ -294,10 +298,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-read-status-read:hover {
   background-color: var(--btn-read-status-read-hover-bg-clr);
+  color: var(--btn-read-status-read-text-contrast-clr);
 }
 
 .btn-read-status-read:active {
   background-color: var(--btn-read-status-read-active-bg-clr);
+  color: var(--btn-read-status-read-text-contrast-clr);
 }
 /* ************************** */
 
