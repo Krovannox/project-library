@@ -106,6 +106,13 @@ h1, h2, h3, h4, h5, h6 {
   --btn-add-book-active-bg-clr: #7A4A2A;
   --btn-add-book-text-clr: #F4E7D3;
 
+  --modal-bg-clr: #E6D3B3;
+  --modal-border-clr: #6B4226;
+  --btn-modal-bg-clr: #5A3A1B;
+  --btn-modal-hover-bg-clr: #6B4226;
+  --btn-modal-active-bg-clr: #7A4A2A;
+  --btn-modal-text-clr: #F4E7D3;
+
   --book-container-bg-clr: #D6BFA3;
   --card-bg-clr: #E6D3B3;
   --card-border-clr: #6B4226;
@@ -333,19 +340,13 @@ h1, h2, h3, h4, h5, h6 {
 /********************/
 
 .dialog-container {
-  background-color: lightcoral;
-  border: 2px solid black;
+  background-color: var(--modal-bg-clr);
+  border: 2px solid var(--modal-border-clr);
   border-radius: 0.5rem;
 }
 
-/* TEMPORAL */
-.dialog-container * {
-  outline: 1px solid blue;
-}
-/* TEMPORAL */
-
 .add-book-form {
-  outline: 1px solid black; /* Temporal */
+  padding: 0.5rem 1.5rem;
 
   display: flex;
   flex-direction: column;
@@ -384,10 +385,28 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0.25rem 0.5rem;
 }
 
-.btn-submit-add-book-form {
+.btn-submit-add-book-form,
+.btn-close-add-book-form {
+  background-color: var(--btn-modal-bg-clr);
+  color: var(--btn-modal-text-clr);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0;
+  font-weight: 600;
+  width: 8rem;
+  box-shadow: 0 2px 4px rgba(60, 40, 20, 0.25);
+
   align-self: center;
 }
 
-.btn-close-add-book-form {
-  align-self: center;
+.btn-submit-add-book-form:hover,
+.btn-close-add-book-form:hover {
+  background-color: var(--btn-modal-hover-bg-clr);
+  box-shadow: 0 4px 8px rgba(60, 40, 20, 0.35);
+}
+
+.btn-submit-add-book-form:active,
+.btn-close-add-book-form:active {
+  background-color: var(--btn-modal-active-bg-clr);
+  box-shadow: 0 4px 8px rgba(60, 40, 20, 0.35);
 }
