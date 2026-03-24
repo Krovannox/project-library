@@ -312,7 +312,7 @@ h1, h2, h3, h4, h5, h6 {
 /**********************/
 
 /* Remove Book button general style */
-.remove-book {
+.btn-remove-book {
   font-weight: 500;
   font-size: 0.9rem;
 
@@ -328,13 +328,13 @@ h1, h2, h3, h4, h5, h6 {
   align-self: flex-end;
 }
 
-.remove-book:hover {
+.btn-remove-book:hover {
   background-color: var(--btn-remove-book-hover-bg-clr);
   color: var(--btn-remove-book-text-contrast-clr);
   box-shadow: 0 4px 8px rgba(60, 40, 20, 0.35);
 }
 
-.remove-book:active {
+.btn-remove-book:active {
   background-color: var(--btn-remove-book-active-bg-clr);
   color: var(--btn-remove-book-text-contrast-clr);
   box-shadow: 0 4px 8px rgba(60, 40, 20, 0.35);

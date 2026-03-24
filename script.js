@@ -85,6 +85,8 @@ dialogInputForm.addEventListener("click", function(e) {
         addBook(bookTitle.value, bookAuthor.value, bookPages.value);
         clearFormInputs(dialogInputForm);
         closeDialog(targetFormBtn);
+
+        renderBooks(myLibrary);
     }
 
     // Delegation for the "Close" button
@@ -101,18 +103,91 @@ dialogInputForm.addEventListener("click", function(e) {
 
 const bookshelf = document.getElementById("books-container");
 
-// Event delegation function for the books container
-bookshelf.addEventListener("click", function(e) {
-    const targetBookshelfBtn = e.target;
+////////////////////////////////////////////////////////
+// FUNCTION - VISUALLY TOGGLES THE READ STATUS BUTTON //
+////////////////////////////////////////////////////////
 
-    // Delegation for the Read/Unread button
-    if (targetBookshelfBtn.classList.contains("btn-read-status")) toggleReadUnreadDisplay(targetBookshelfBtn)
-})
-
-// Function that handles the toggle and change of text of the Read/Unread button
 function toggleReadUnreadDisplay(targetBookshelfBtn) {
     targetBookshelfBtn.classList.toggle("btn-read-status-read");
     targetBookshelfBtn.textContent = targetBookshelfBtn.classList.contains("btn-read-status-read")
         ? "Read"
         : "Unread";
 }
+
+/////////////////////////////////
+// FUNCTION - CREATE BOOK CARD //
+/////////////////////////////////
+
+function createBookCard(book) {
+    // Create elements and asign them classes
+    const bookCard = document.createElement("div");
+    bookCard.className = "book-card";
+
+    const bookTitle = document.createElement("span");
+    bookTitle.className = "book-title";
+
+    const bookAuthor = document.createElement("span");
+    bookAuthor.className = "book-author";
+
+    const bookPages = document.createElement("span");
+    bookPages.className = "book-pages";
+
+    const btnReadUnread = document.createElement("button");
+    btnReadUnread.className = "btn-read-status btn-read-status-unread";
+    btnReadUnread.textContent = "Unread";
+
+    const btnRemoveBook = document.createElement("button");
+    btnRemoveBook.className = "btn-remove-book";
+    btnRemoveBook.textContent = "Remove Book";
+
+    for (let property in book) {
+        // Avoid adding "read" and "bookID" to the display
+        if (property === "read") continue;
+        if (property === "bookID") continue;
+
+        // Asigns the value per property
+        if (property === "title") {
+            bookTitle.textContent = book[property];
+            console.log(bookTitle);
+        } else if (property === "author") {
+            bookAuthor.textContent = `by ${book[property]}`;
+            console.log(bookAuthor);
+        } else if (property === "pages") {
+            bookPages.textContent = `${book[property]} pages`;
+            console.log(bookPages);
+        }
+
+        // Appends the inputs to the bookCard
+        bookCard.appendChild(bookTitle);
+        bookCard.appendChild(bookAuthor);
+        bookCard.appendChild(bookPages);
+        bookCard.appendChild(btnReadUnread);
+        bookCard.appendChild(btnRemoveBook);
+
+        // Appends the bookCard to the Bookshelf
+        bookshelf.appendChild(bookCard);
+    }
+}
+
+//////////////////////////////////////////////////////////////////////
+// FUNCTION - RENDERS THE BOOKS IN THE ARRAY TO THE BOOKS CONTAINER //
+//////////////////////////////////////////////////////////////////////
+
+function renderBooks(myLibrary) {
+    bookshelf.textContent = "";
+    
+    for (let book of myLibrary) {
+        createBookCard(book);
+    }
+}
+
+//////////////////////////////////////////////
+// EVENT DELEGATION FOR THE BOOKS CONTAINER //
+//////////////////////////////////////////////
+
+bookshelf.addEventListener("click", function(e) {
+    const targetBookshelfBtn = e.target;
+
+    // Delegation for the Read/Unread button
+    if (targetBookshelfBtn.classList.contains("btn-read-status")) toggleReadUnreadDisplay(targetBookshelfBtn)
+})
