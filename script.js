@@ -29,7 +29,7 @@ Book.prototype.changeReadStatus = function() {
 /////////////////////////
 
 function addBook(title, author, pages) {
-    return myLibrary.push(new Book(title, author, pages));
+    myLibrary.push(new Book(title, author, pages));
 }
 
 ///////////////////////////
