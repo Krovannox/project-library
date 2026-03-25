@@ -397,6 +397,15 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0.25rem 0.5rem;
 }
 
+.add-book-form-input:user-invalid {
+  border: 2px solid red;
+}
+
+.add-book-form-input:user-valid {
+  border: 2px solid green;
+}
+
+
 /* Hide the input spinner from the input type="number" */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
