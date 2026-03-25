@@ -145,7 +145,9 @@ function changeReadStatus(target) {
     const bookToChangeReadStatus = myLibrary.find(book => book.bookID === bookID);
 
     // Call the prototype to change the status in the array
-    bookToChangeReadStatus.changeReadStatus();
+    if (bookToChangeReadStatus) {
+        bookToChangeReadStatus.changeReadStatus();
+    }
 }
 
 /////////////////////////////////
