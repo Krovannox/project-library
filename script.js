@@ -162,8 +162,13 @@ function createBookCard(book) {
     cardBtnContainer.className = "card-btn-container";
 
     const btnReadUnread = document.createElement("button");
-    btnReadUnread.className = "btn-read-status btn-read-status-unread";
-    btnReadUnread.textContent = "Unread";
+    if (book.read) {
+        btnReadUnread.className = "btn-read-status btn-read-status-read";
+        btnReadUnread.textContent = "Read";
+    } else {
+        btnReadUnread.className = "btn-read-status btn-read-status-unread";
+        btnReadUnread.textContent = "Unread";
+    }
 
     const btnRemoveBook = document.createElement("button");
     btnRemoveBook.className = "btn-remove-book";
