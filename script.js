@@ -21,11 +21,7 @@ function Book(title, author, pages) {
 ////////////////////////////////////
 
 Book.prototype.changeReadStatus = function() {
-    if (!this.read) {
-        this.read = true;
-    } else {
-        this.read = false;
-    }
+    this.read = !this.read;
 }
 
 /////////////////////////
