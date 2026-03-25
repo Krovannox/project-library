@@ -93,7 +93,15 @@ dialogInputForm.addEventListener("click", function(e) {
     // Delegation for the "Submit" button
     if (targetFormBtn.id === "btn-submit-add-book-form") {
         e.preventDefault();
-        
+
+        // Form validation
+        const form = document.querySelector("form");
+
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+
         addBook(bookTitle.value, bookAuthor.value, bookPages.value);
         clearFormInputs(dialogInputForm);
         closeDialog(targetFormBtn);

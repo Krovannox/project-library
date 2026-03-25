@@ -27,13 +27,13 @@
 
                     <div class="add-book-form-inputs-container">
                         <label for="book-title" class="add-book-form-label">Title:</label>
-                        <input type="text" class="add-book-form-input" name="book_title" id="book-title" placeholder="Title...">
+                        <input type="text" class="add-book-form-input" name="book_title" id="book-title" placeholder="Title..." required>
 
                         <label for="book-author" class="add-book-form-label">Author:</label>
-                        <input type="text" class="add-book-form-input" name="book_author" id="book-author" placeholder="Author...">
+                        <input type="text" class="add-book-form-input" name="book_author" id="book-author" placeholder="Author..." required>
 
                         <label for="book-pages" class="add-book-form-label">Pages:</label>
-                        <input type="number" class="add-book-form-input" name="" id="book-pages" placeholder="123...">
+                        <input type="number" class="add-book-form-input" name="" id="book-pages" placeholder="123..." min="1" step="1" required>
                     </div>
 
                     <button type="submit" class="btn-submit-add-book-form" id="btn-submit-add-book-form">Submit</button>
