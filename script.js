@@ -16,6 +16,18 @@ function Book(title, author, pages) {
     this.bookID = crypto.randomUUID(); // BookID generated at it's creation
 }
 
+////////////////////////////////////
+// PROTOTYPE - CHANGE READ STATUS //
+////////////////////////////////////
+
+Book.prototype.changeReadStatus = function() {
+    if (!this.read) {
+        this.read = true;
+    } else {
+        this.read = false;
+    }
+}
+
 /////////////////////////
 // FUNCTION - ADD BOOK //
 /////////////////////////
@@ -93,10 +105,6 @@ dialogInputForm.addEventListener("click", function(e) {
     if (targetFormBtn.id === "btn-close-add-book-form") closeDialog(targetFormBtn);
 })
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// ORDER PENDING//
-
 /////////////////////////
 // GET BOOKS CONTAINER //
 /////////////////////////
@@ -107,11 +115,29 @@ const bookshelf = document.getElementById("books-container");
 // FUNCTION - VISUALLY TOGGLES THE READ STATUS BUTTON //
 ////////////////////////////////////////////////////////
 
-function toggleReadUnreadDisplay(targetBookshelfBtn) {
-    targetBookshelfBtn.classList.toggle("btn-read-status-read");
-    targetBookshelfBtn.textContent = targetBookshelfBtn.classList.contains("btn-read-status-read")
+function toggleReadUnreadDisplay(target) {
+    target.classList.toggle("btn-read-status-read");
+    target.textContent = target.classList.contains("btn-read-status-read")
         ? "Read"
         : "Unread";
+}
+
+////////////////////////////////////////////
+// FUNCTION - CHANGE READ STATUS IN ARRAY //
+////////////////////////////////////////////
+
+function changeReadStatus(target) {
+    //Get the bookCard related to the button pressed
+    const bookCard = target.closest(".book-card");
+
+    // Get the ID related to the bookCard
+    const bookID = bookCard.dataset.id;
+
+    // Get the book in the main array
+    const bookToChangeReadStatus = myLibrary.find(book => book.bookID === bookID);
+
+    // Call the prototype to change the status in the array
+    bookToChangeReadStatus.changeReadStatus();
 }
 
 /////////////////////////////////
@@ -183,7 +209,10 @@ bookshelf.addEventListener("click", function(e) {
     const target = e.target;
 
     // Delegation for the Read/Unread button
-    if (target.classList.contains("btn-read-status")) toggleReadUnreadDisplay(target);
+    if (target.classList.contains("btn-read-status")) {
+        toggleReadUnreadDisplay(target);
+        changeReadStatus(target);
+    }
 
     // Delegation for the Remove Book button
     if (target.classList.contains("btn-remove-book")) {
